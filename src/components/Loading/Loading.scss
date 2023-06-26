@@ -1,0 +1,26 @@
+@use '../../styles/colors' as c;
+@use '../../styles/sizes' as s;
+@use '../../styles/fonts' as f;
+@use '../../styles/snippets';
+
+.loading {
+    @extend %logoShape;
+    height: s.$logoTextDouble;
+    margin-top: 20%;
+    animation: shrink 0.3s linear forwards, rotation 2s linear 0.5s infinite;
+}
+
+@keyframes shrink {
+    100% {width: s.$logoTextDouble;
+          border-inline: s.$gap solid c.$grey-8;
+    }
+}
+
+@keyframes rotation {
+    22% {transform: rotate(60deg)}
+    33% {transform: rotate(60deg)}
+    55% {transform: rotate(120deg)}
+    66% {transform: rotate(120deg)}
+    88% {transform: rotate(180deg)}
+    100% {transform: rotate(180deg)}
+}

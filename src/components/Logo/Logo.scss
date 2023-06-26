@@ -1,0 +1,25 @@
+@use '../../styles/colors' as c;
+@use '../../styles/sizes' as s;
+@use '../../styles/fonts' as f;
+@use '../../styles/snippets';
+
+
+.logo {
+    @extend %logoShape;
+    width: s.$containerWidth;
+    font-family: f.$logoFont;
+    font-weight: 700;
+    font-size: s.$logoText;
+    color: c.$grey-c;
+    padding: 0 s.$gap;
+    margin-top: 20%;
+    letter-spacing: 0.1em;
+    line-height: 1.1;
+    border-inline: s.$gap solid c.$grey-c;
+
+}
+
+.logo_content:nth-child(even) {
+    text-align: end;
+    font-weight: 400;
+}

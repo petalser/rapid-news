@@ -1,0 +1,63 @@
+@use "../../styles/snippets";
+@use "../../styles/fonts" as f;
+@use "../../styles/sizes" as s;
+@use "../../styles/colors" as c;
+
+.item-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.list-item {
+  @extend %logoShape;
+    cursor: pointer;
+    width: s.$itemWidth;
+    height: auto;
+    overflow: hidden;
+    
+    h1 {
+    font-family: f.$logoFont;
+    font-size: 1rem;
+    font-weight: 700;
+    color: c.$grey-0;
+  }
+
+    * {
+        margin: s.$gap;
+    }
+    &__thumbnail {
+        float: left;
+        width: 5rem;
+        height: auto;
+        filter: grayscale(100%);
+    }
+  }
+
+.list-item--description {
+  visibility: hidden;
+  width: min(100%, 35rem);
+  max-height: s.$logoTextDouble * 2;
+  overflow: hidden;
+  padding: s.$gap;
+  background-color: c.$grey-f;
+  color: c.$grey-0;
+  border-inline: s.$gap solid c.$grey-8;
+  border-bottom: s.$gap solid c.$grey-8;
+  border-radius: 0 0 0 s.$gap;
+
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+}
+
+.list-item:hover {
+  background-color: c.$grey-f;
+  border-radius: 0;
+  width: min(100%, 35rem);  
+}
+
+#page {
+  display: none;
+}

@@ -1,0 +1,99 @@
+    @use '../../styles/colors' as c;
+    @use '../../styles/sizes' as s;
+    @use '../../styles/fonts' as f;
+    @use '../../styles/snippets';
+
+
+
+
+    .page {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        background-color: c.$grey-8;
+
+
+        * {
+            background-color: c.$grey-e;
+        color: c.$grey-0;
+            padding: s.$gap;
+        }
+
+        &__image {
+            width: 100%;
+        }
+
+        &__text {
+            text-align: justify;
+        }
+
+        &__close {
+            position: fixed;
+            right: s.$gap;
+            height: 7%;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1rem;
+            background-color: c.$grey-e;
+            border: 3px solid c.$grey-8;
+            border-radius: 40%;
+            color: c.$grey-8;
+        }
+    }
+
+    @media only screen and (min-width: 415px) {
+        .page {
+            grid-template-columns: 1fr 1fr;
+
+
+            &__title {
+                @include snippets.startEnd(1, 3);
+            }
+
+            &__text {
+            column-count: 2;
+            grid-column-start: 1;
+            grid-column-end: 3;
+
+        }
+        } 
+    }
+
+    @media only screen and (min-width: 821px) {
+        .page {
+            grid-template-columns: 1fr 1fr 1fr;
+
+            &__title {
+                @include snippets.startEnd(1,3);
+
+            }
+
+            &__image {
+                @include snippets.startEnd(3,4);
+                grid-row-start: 1;
+                grid-row-end: 3;
+                height: 100%;
+                margin: auto;
+                // outline: 3px solid red;
+            }
+
+            &__desc {
+                @include snippets.startEnd(1, 3);
+                grid-row-start: 2;
+                font-style: oblique;
+
+            }
+
+            &__text {
+            @include snippets.startEnd(1,4);
+            column-count: 3;
+        }
+        } 
+    }

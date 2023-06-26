@@ -1,0 +1,16 @@
+@use './colors' as c;
+@use './sizes' as s;
+@use './fonts' as f;
+
+
+%logoShape {
+    margin-top: s.$gap;
+    background-color: c.$grey-e;
+    border-inline: s.$gap solid c.$grey-8;
+    border-radius: s.$gap;
+}
+
+@mixin startEnd($start, $end) {
+    grid-column-start: $start;
+    grid-column-end: $end;
+}

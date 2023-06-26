@@ -1,0 +1,27 @@
+@use 'colors' as c;
+@use 'sizes' as s;
+
+// html, body {
+//   width: 100%;
+// }
+
+
+body {
+  box-sizing: border-box;
+  background-color: c.$grey-e;
+  background-color: c.$grey-e;
+
+  
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  padding: 0;
+  width: 100%;
+} 
+
+#root {
+  width: 100%;
+}

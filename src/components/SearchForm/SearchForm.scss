@@ -1,0 +1,37 @@
+@use '../../styles/colors' as c;
+@use '../../styles/sizes' as s;
+@use '../../styles/fonts' as f;
+@use '../../styles/snippets';
+
+
+//search select input submit
+
+.search {
+    @extend %logoShape;
+    width: s.$itemWidth;
+
+    * {
+        height: 2rem;
+        border: none;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+    }
+
+    &__select, &__submit {
+        color: white;
+        font-family: f.$logoFont;
+        background-color: c.$grey-8;
+        width: 20%;
+    }
+
+    &__input {
+        padding-left: s.$gap;
+        width: 60%;
+        background-color: c.$grey-e;
+    }
+
+    &__input:active {
+        color: c.$grey-f;
+    }
+    
+}
