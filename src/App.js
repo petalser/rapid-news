@@ -34,6 +34,7 @@ function App() {
             key={index}
             id={index}
             image={item["image_url"]}
+            video={item["video_url"]}
             title={item["title"]}
             description={item["description"]}
             text={item["content"]}

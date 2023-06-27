@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./ListItem.scss";
 import Page from '../Page/Page.jsx';
 
-export default function ListItem({ image, title, description, text, id }) {
+export default function ListItem({ image, video, title, description, text, id }) {
 
   const [isReading, setIsReading] = useState(false);
   const descriptionId = `desc-${id}`;
@@ -24,7 +24,7 @@ export default function ListItem({ image, title, description, text, id }) {
 
   }
 
-
+  console.log(video);
 
   return (
     <div className="item-container">
@@ -50,7 +50,14 @@ export default function ListItem({ image, title, description, text, id }) {
       </p>
       
       {isReading && 
-            <Page setter={togglePage} title={title} description={description} image={image} text={text} />
+            <Page 
+            setter={togglePage} 
+            title={title} 
+            description={description} 
+            image={image} 
+            video={video}
+            text={text} 
+            />
 
       }
     </div>
