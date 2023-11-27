@@ -1,5 +1,19 @@
-<h3>Let me introduce our newest product:</h3>
-<h1>The Rapid News App!</h1>
-<p>Just choose desired language and search something!</p>
-<p>Hover over one of results to see description for that article,
-click to read</p>
+# RAPID NEWS
+
+---
+
+[Try](https://rapid-news-react.netlify.app/)
+
+---
+
+## Summary
+
+This is simple news app. Choose prefered language for results and find news. Hover over one of results to see more info. Click to read.
+
+---
+
+## Features
+
+- **React.js**;
+- **SASS** for styling;
+- Custom animations, async/await, Fetch API, using REST API.
