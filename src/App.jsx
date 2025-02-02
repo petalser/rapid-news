@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import SearchForm from "./components/SearchForm/SearchForm";
 import Loading from "./components/Loading/Loading";
 import Logo from "./components/Logo/Logo";
