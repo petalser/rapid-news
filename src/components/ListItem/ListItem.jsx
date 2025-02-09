@@ -24,8 +24,6 @@ export default function ListItem({ image, video, title, description, text, id })
 
   }
 
-  console.log(video);
-
   return (
     <div className="item-container">
       <div
@@ -35,29 +33,29 @@ export default function ListItem({ image, video, title, description, text, id })
         onMouseLeave={handleHoverOut}
         onClick={() => togglePage(true)}
       >
-        {image ? <img 
-        src={image} 
-        alt="thumbnail" 
-        className="list-item__thumbnail" />
-        : null}
+        {image ? <img
+          src={image}
+          alt="thumbnail"
+          className="list-item__thumbnail" />
+          : null}
         <h1 className="list-item__title">{title}</h1>
-        
+
       </div>
 
-       
+
       <p className="list-item--description" id={descriptionId}>
         {description ? description : "No description available"}
       </p>
-      
-      {isReading && 
-            <Page 
-            setter={togglePage} 
-            title={title} 
-            description={description} 
-            image={image} 
-            video={video}
-            text={text} 
-            />
+
+      {isReading &&
+        <Page
+          setter={togglePage}
+          title={title}
+          description={description}
+          image={image}
+          video={video}
+          text={text}
+        />
 
       }
     </div>

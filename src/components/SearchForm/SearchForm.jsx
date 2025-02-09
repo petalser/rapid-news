@@ -4,7 +4,7 @@ import './SearchForm.scss'
 
 export default function SearchForm({ loading, result }) {
   const langRef = useRef();
-  const queryRef = useRef();  
+  const queryRef = useRef();
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
@@ -17,11 +17,9 @@ export default function SearchForm({ loading, result }) {
       const data = await request.json();
       loading(false);
       result(data.results);
-      console.log('content:')
-      console.log(data.results[0])
     };
     try {
-          fetchNews();
+      fetchNews();
 
     } catch (err) {
       loading(false);
@@ -30,8 +28,8 @@ export default function SearchForm({ loading, result }) {
     }
   };
 
-    return (
-      <form
+  return (
+    <form
       id="form"
       method="GET"
       onSubmit={handleOnSubmit}
@@ -63,5 +61,5 @@ export default function SearchForm({ loading, result }) {
         value="GO!"
       ></input>
     </form>
-    )
+  )
 };
