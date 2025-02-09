@@ -3,10 +3,11 @@ import { useState } from "react";
 import "./ListItem.scss";
 import Page from '../Page/Page.jsx';
 
-export default function ListItem({ image, video, title, description, text, id }) {
+export default function ListItem({ data, id }) {
 
   const [isReading, setIsReading] = useState(false);
   const descriptionId = `desc-${id}`;
+  const { title, description, content, url, image, publishedAt, source } = data
 
   const handleHoverIn = () => {
     const descriptionBox = document.getElementById(descriptionId);
@@ -15,13 +16,11 @@ export default function ListItem({ image, video, title, description, text, id })
 
   const handleHoverOut = () => {
     const descriptionBox = document.getElementById(descriptionId);
-    // const id = x.target.id;
     descriptionBox.style.visibility = "hidden";
   };
 
   const togglePage = (value) => {
     setIsReading(value);
-
   }
 
   return (
@@ -46,6 +45,8 @@ export default function ListItem({ image, video, title, description, text, id })
       <p className="list-item--description" id={descriptionId}>
         {description ? description : "No description available"}
       </p>
+
+
 
       {isReading &&
         <Page

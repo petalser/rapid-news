@@ -2,6 +2,9 @@ import React from "react";
 import { useRef } from "react";
 import './SearchForm.scss'
 
+const KEY = import.meta.env.VITE_GNEWS_API_KEY
+const URL = import.meta.env.VITE_GNEWS_API_ENDPOINT
+
 export default function SearchForm({ loading, result }) {
   const langRef = useRef();
   const queryRef = useRef();
@@ -11,12 +14,12 @@ export default function SearchForm({ loading, result }) {
     loading(true);
     const fetchNews = async () => {
       const request = await fetch(
-        // explicit API key isn't good practice, but in this case it is ok
-        `https://newsdata.io/api/1/news?apikey=pub_1852633884987bf5fd21aa8e00edb15afd4ae&q=${queryRef.current.value}&language=${langRef.current.value}`
+        `${URL}search?apikey=${KEY}&q=${queryRef.current.value}&lang=${langRef.current.value}`
       );
       const data = await request.json();
+      console.log(data)
       loading(false);
-      result(data.results);
+      result(data.articles);
     };
     try {
       fetchNews();
