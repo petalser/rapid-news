@@ -1,33 +1,25 @@
-import React from "react";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import './SearchForm.scss'
 
-const KEY = import.meta.env.VITE_GNEWS_API_KEY
-const URL = import.meta.env.VITE_GNEWS_API_ENDPOINT
-
-export default function SearchForm({ loading, result }) {
+export default function SearchForm({ setter }) {
   const langRef = useRef();
   const queryRef = useRef();
+  const navigate = useNavigate();
 
-  const handleOnSubmit = async (event) => {
-    event.preventDefault();
-    loading(true);
-    const fetchNews = async () => {
-      const request = await fetch(
-        `${URL}search?apikey=${KEY}&q=${queryRef.current.value}&lang=${langRef.current.value}`
-      );
-      const data = await request.json();
-      console.log(data)
-      loading(false);
-      result(data.articles);
-    };
-    try {
-      fetchNews();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const query = queryRef.current?.value.trim();
+    const lang = langRef.current?.value.trim();
 
-    } catch (err) {
-      loading(false);
-      result([]);
-      console.log('Fetch failed: ' + err)
+    if (query) {
+      const searchParams = new URLSearchParams();
+      searchParams.set("q", query);
+      if (lang) searchParams.set("lang", lang);
+
+      navigate(`/?${searchParams.toString()}`);
+    } else {
+      navigate("/");
     }
   };
 
@@ -35,7 +27,7 @@ export default function SearchForm({ loading, result }) {
     <form
       id="form"
       method="GET"
-      onSubmit={handleOnSubmit}
+      onSubmit={handleSubmit}
       className="search"
     >
       <select

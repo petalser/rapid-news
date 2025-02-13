@@ -1,13 +1,12 @@
 import React from "react";
-import { useState } from "react";
 import "./ListItem.scss";
-import Page from '../Page/Page.jsx';
+import { Link } from "react-router-dom";
 
 export default function ListItem({ data, id }) {
-
-  const [isReading, setIsReading] = useState(false);
   const descriptionId = `desc-${id}`;
-  const { title, description, content, url, image, publishedAt, source } = data
+  const { title, description, content, url, image, publishedAt, source } = data;
+
+  const slug = encodeURIComponent(title.toLowerCase());
 
   const handleHoverIn = () => {
     const descriptionBox = document.getElementById(descriptionId);
@@ -19,46 +18,21 @@ export default function ListItem({ data, id }) {
     descriptionBox.style.visibility = "hidden";
   };
 
-  const togglePage = (value) => {
-    setIsReading(value);
-  }
-
   return (
-    <div className="item-container">
+    <Link to={`/article/${slug}`} state={data} className="item-container">
       <div
         className="list-item"
         id={id}
         onMouseEnter={handleHoverIn}
         onMouseLeave={handleHoverOut}
-        onClick={() => togglePage(true)}
       >
-        {image ? <img
-          src={image}
-          alt="thumbnail"
-          className="list-item__thumbnail" />
-          : null}
+        {image && <img src={image} alt="thumbnail" className="list-item__thumbnail" />}
         <h1 className="list-item__title">{title}</h1>
-
       </div>
-
 
       <p className="list-item--description" id={descriptionId}>
         {description ? description : "No description available"}
       </p>
-
-
-
-      {isReading &&
-        <Page
-          setter={togglePage}
-          title={title}
-          description={description}
-          image={image}
-          video={video}
-          text={text}
-        />
-
-      }
-    </div>
+    </Link>
   );
 }
