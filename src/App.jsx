@@ -1,43 +1,27 @@
-import React, { useState } from "react";
-import SearchForm from "./components/SearchForm/SearchForm";
-import Loading from "./components/Loading/Loading";
-import Logo from "./components/Logo/Logo";
-import ListItem from "./components/ListItem/ListItem";
-import Page from "./components/Page/Page";
+import React, { useEffect } from "react";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Page from "./pages/Page/Page";
 
 function App() {
-  const [result, setResult] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [isReading, setIsReading] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const loadingSetter = (isLoading) => {
-    setLoading(isLoading);
-  };
+  useEffect(() => {
+    const path = location.pathname.slice(1); // Get the path without the leading "/"
 
-  const resultSetter = (results) => {
-    setResult(results);
-  };
+    if (path && !location.pathname.startsWith("/article/")) {
+      navigate(`/?q=${encodeURIComponent(path)}`, { replace: true });
+    }
+  }, [location, navigate]);
 
   return (
-    <div className="container">
-      <SearchForm loading={loadingSetter} result={resultSetter} />
-      {loading && <Loading />}
-      {!loading && !result && <Logo topText="Rapid" bottomText="News" />}
-      {!loading && result && result.length === 0 && (
-        <Logo topText="No" bottomText="Results" />
-      )}
-      {!loading &&
-        result &&
-        result.length > 0 &&
-        result.map((item, index) => (
-          <ListItem
-            key={index}
-            id={index}
-            data={item}
-          />
-        ))}
-    </div>
-  );
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/article/:slug" element={<Page />} />
+      <Route path="*" element={<Home />} />
+    </Routes>
+  )
 }
 
-export default App;
+export default App
