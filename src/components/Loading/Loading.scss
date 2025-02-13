@@ -12,7 +12,7 @@
 
 @keyframes shrink {
     100% {width: s.$logoTextDouble;
-          border-inline: s.$gap solid c.$grey-8;
+          border-inline: s.$gap solid var(--grey-8);
     }
 }
 

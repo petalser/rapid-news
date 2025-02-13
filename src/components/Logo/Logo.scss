@@ -1,4 +1,3 @@
-@use '../../styles/colors' as c;
 @use '../../styles/sizes' as s;
 @use '../../styles/fonts' as f;
 @use '../../styles/snippets';
@@ -10,12 +9,12 @@
     font-family: f.$logoFont;
     font-weight: 700;
     font-size: s.$logoText;
-    color: c.$grey-c;
+    color: var(--grey-8);
     padding: 0 s.$gap;
     margin-top: 20%;
     letter-spacing: 0.1em;
     line-height: 1.1;
-    border-inline: s.$gap solid c.$grey-c;
+    border-inline: s.$gap solid var(--grey-8);
 
 }
 

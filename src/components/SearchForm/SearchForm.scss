@@ -1,10 +1,6 @@
-@use '../../styles/colors' as c;
 @use '../../styles/sizes' as s;
 @use '../../styles/fonts' as f;
 @use '../../styles/snippets';
-
-
-//search select input submit
 
 .search {
     @extend %logoShape;
@@ -18,20 +14,16 @@
     }
 
     &__select, &__submit {
-        color: white;
+        color: var(--grey-f);
         font-family: f.$logoFont;
-        background-color: c.$grey-8;
+        background-color: var(--grey-8);
         width: 20%;
     }
 
     &__input {
         padding-left: s.$gap;
         width: 60%;
-        background-color: c.$grey-e;
+        background-color: var(--grey-e);
+        color: var(--grey-4);
     }
-
-    &__input:active {
-        color: c.$grey-f;
-    }
-    
 }

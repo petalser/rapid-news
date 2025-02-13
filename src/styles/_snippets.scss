@@ -5,8 +5,8 @@
 
 %logoShape {
     margin-top: s.$gap;
-    background-color: c.$grey-e;
-    border-inline: s.$gap solid c.$grey-8;
+    background-color: var(--grey-e);
+    border-inline: s.$gap solid var(--grey-8);
     border-radius: s.$gap;
 }
 

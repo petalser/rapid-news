@@ -21,7 +21,7 @@
     font-family: f.$logoFont;
     font-size: 1rem;
     font-weight: 700;
-    color: c.$grey-0;
+    color: var(--grey-0);
   }
 
     * {
@@ -41,10 +41,10 @@
   max-height: s.$logoTextDouble * 2;
   overflow: hidden;
   padding: s.$gap;
-  background-color: c.$grey-f;
-  color: c.$grey-0;
-  border-inline: s.$gap solid c.$grey-8;
-  border-bottom: s.$gap solid c.$grey-8;
+  background-color: var(--grey-f);
+  color: var(--grey-0);
+  border-inline: s.$gap solid var(--grey-8);
+  border-bottom: s.$gap solid var(--grey-8);
   border-radius: 0 0 0 s.$gap;
 
   position: absolute;
@@ -53,11 +53,7 @@
 }
 
 .list-item:hover {
-  background-color: c.$grey-f;
+  background-color: var(--grey-f);
   border-radius: 0;
   width: min(100%, 35rem);  
-}
-
-#page {
-  display: none;
 }

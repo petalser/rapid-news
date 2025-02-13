@@ -1,7 +1,29 @@
-// Colors
+// _colors.scss
 $grey-0 : #000;
 $grey-4 : #444;
 $grey-8 : #888;
 $grey-c : #ccc;
 $grey-e : #ddd;
 $grey-f : #fff;
+
+// Light mode as default
+:root {
+  --grey-0: #{$grey-0};
+    --grey-4: #{$grey-4};
+    --grey-8: #{$grey-8};
+    --grey-c: #{$grey-c};
+    --grey-e: #{$grey-e};
+    --grey-f: #{$grey-f};
+}
+
+// Dark mode
+@media (prefers-color-scheme: dark) {
+  :root {
+    --grey-0: #{$grey-f};
+  --grey-4: #{$grey-e};
+  --grey-8: #{$grey-c};
+  --grey-c: #{$grey-8};
+  --grey-e: #{$grey-4};
+  --grey-f: #{$grey-0};
+  }
+}
