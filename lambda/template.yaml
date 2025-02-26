@@ -1,0 +1,29 @@
+Resources:
+  ArticleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs18.x
+      Timeout: 60
+      MemorySize: 1024
+      Events:
+        ArticlePost:
+          Type: Api
+          Properties:
+            Path: /article
+            Method: post
+            Cors:
+              AllowMethods: "'OPTIONS,POST'"
+              AllowHeaders: "'Content-Type'"
+              AllowOrigin: "'*'"
+
+        # 🔥 Add an explicit OPTIONS method to handle CORS preflight
+        ArticleOptions:
+          Type: Api
+          Properties:
+            Path: /article
+            Method: options
+            Cors:
+              AllowMethods: "'OPTIONS,POST'"
+              AllowHeaders: "'Content-Type'"
+              AllowOrigin: "'*'"
