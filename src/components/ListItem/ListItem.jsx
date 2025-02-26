@@ -2,7 +2,7 @@ import React from "react";
 import "./ListItem.scss";
 import { Link } from "react-router-dom";
 
-export default function ListItem({ data, id }) {
+const ListItem = ({ data, id }) => {
   const descriptionId = `desc-${id}`;
   const { title, description, content, url, image, publishedAt, source } = data;
 
@@ -36,3 +36,5 @@ export default function ListItem({ data, id }) {
     </Link>
   );
 }
+
+export default ListItem

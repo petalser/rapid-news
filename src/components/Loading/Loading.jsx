@@ -3,9 +3,11 @@ import './Loading.scss';
 import '../../pages/Home/Home.scss'
 
 
-export default function Loading() {
+const Loading = () => {
     return (
         <div className="loading">
         </ div>
     )
 }
+
+export default Loading

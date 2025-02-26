@@ -3,7 +3,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Page from "./pages/Page/Page";
 
-function App() {
+const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
 

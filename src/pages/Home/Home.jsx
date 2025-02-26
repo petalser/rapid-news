@@ -7,7 +7,7 @@ import Logo from "../../components/Logo/Logo";
 import ListItem from "../../components/ListItem/ListItem";
 import "./Home.scss";
 
-function Home() {
+const Home = () => {
     const [result, setResult] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);  // Track fetch errors

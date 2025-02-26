@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import './SearchForm.scss'
 
-export default function SearchForm({ setter }) {
+const SearchForm = ({ setter }) => {
   const langRef = useRef();
   const queryRef = useRef();
   const navigate = useNavigate();
@@ -26,7 +26,6 @@ export default function SearchForm({ setter }) {
   return (
     <form
       id="form"
-      method="GET"
       onSubmit={handleSubmit}
       className="search"
     >
@@ -38,9 +37,8 @@ export default function SearchForm({ setter }) {
         <option value="en" defaultValue>
           ENG
         </option>
-        <option value="fr">FRA</option>
-        <option value="uk">UKR</option>
-        <option value="pl">POL</option>
+        <option value="fr" disabled>FRA</option>
+        <option value="uk" disabled>UKR</option>
       </select>
 
       <input
@@ -58,3 +56,5 @@ export default function SearchForm({ setter }) {
     </form>
   )
 };
+
+export default SearchForm
