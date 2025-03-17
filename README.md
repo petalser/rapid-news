@@ -2,7 +2,7 @@
 
 ---
 
-[Try](https://rapid-news-react.netlify.app/)
+[Try original (no lambda)](https://rapid-news-react.netlify.app/)
 
 ---
 
