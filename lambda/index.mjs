@@ -7,7 +7,7 @@ const openai = new OpenAI({
 });
 
 const CORS_HEADERS = {
-    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Origin": "*", //please, set appropriate for your case
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
 };
@@ -27,6 +27,8 @@ const scrapeArticle = async (url) => {
     }
 }
 
+
+//main function for AWS Lambda
 export async function handler(event) {
     if (event.httpMethod === "OPTIONS") {
         return { statusCode: 200, headers: CORS_HEADERS, body: "" };

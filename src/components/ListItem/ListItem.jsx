@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ListItem = ({ data, id }) => {
   const descriptionId = `desc-${id}`;
-  const { title, description, content, url, image, publishedAt, source } = data;
+  const { title, description, image } = data;
 
   const slug = encodeURIComponent(title.toLowerCase());
 

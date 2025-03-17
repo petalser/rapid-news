@@ -37,8 +37,8 @@ const SearchForm = ({ setter }) => {
         <option value="en" defaultValue>
           ENG
         </option>
-        <option value="fr" disabled>FRA</option>
-        <option value="uk" disabled>UKR</option>
+        <option value="fr">FRA</option>
+        <option value="uk">UKR</option>
       </select>
 
       <input
