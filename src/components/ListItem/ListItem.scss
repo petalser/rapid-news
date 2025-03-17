@@ -18,20 +18,20 @@
     overflow: hidden;
     
     h1 {
-    font-family: f.$logoFont;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--grey-0);
-  }
+      font-family: f.$logoFont;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--grey-0);
+    }
 
     * {
-        margin: s.$gap;
+      margin: s.$gap;
     }
     &__thumbnail {
-        float: left;
-        width: 5rem;
-        height: auto;
-        filter: grayscale(100%);
+      float: left;
+      width: 5rem;
+      height: auto;
+      filter: grayscale(100%);
     }
   }
 
